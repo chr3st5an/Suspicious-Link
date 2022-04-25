@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+        <div id="main">
+            <form id="input-field" action="/post/create-link" method="POST">
+                <input name="url" type="text" placeholder="https://example.com/" pattern="https?:\/\/(?:[a-z]+?\.)?.*?\.[a-z]{2,}(?::\d{1,5})?(?:(?=\/).*)?" required>
+                <button class="noselect" id="create-button">Create</button>
+            </form>
+            <div>
+                <i class="noselect" id="description">>_ Copy & paste a URL into the field and generate a somewhat suspicious alias</i>
+            </div>
+            {%- if error %}
+                <div class="result error">
+                    <b> {{ error|e }} </b>
+                </div>
+            {% endif %}
+            {%- if alias_link %}
+                <div class="result alias-link">
+                    <span class="noselect">Your link is: </span><b> {{ alias_link|e }} </b>
+                </div>
+            {% endif %}
+        </div>
+{% endblock %}
