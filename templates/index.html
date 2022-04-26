@@ -1,8 +1,150 @@
 {% extends "base.html" %}
-{% block body %}
+{%- block style %}
+            {{ super() }}
+
+            input {
+                color: #f8f8f2;
+                background-color: #44475a;
+                border: none;
+                border-radius: 20px;
+                padding: 7px 125px 5px 15px;
+                transition: 0.25s;
+            }
+
+            input:focus {
+                outline-color: #bd93f9;
+                box-shadow: 0px 3px 20px #bd93f9;
+            }
+
+            .result {
+                padding: 15px 30px;
+                margin-top: 10%;
+                margin-left: 30%;
+                margin-right: 30%;
+                border-radius: 20px;
+                box-shadow: 0px 3px 20px #44475a;
+            }
+
+            .error {
+                background-color: #ff5555;
+            }
+
+            .error:hover {
+                box-shadow: 0px 3px 20px #ff5555;
+            }
+
+            .alias-link {
+                background-color: #50fa7b;
+            }
+
+            .alias-link:hover {
+                box-shadow: 0px 3px 20px #50fa7b;
+            }
+
+            #main {
+                text-align: center;
+            }
+
+            #input-field {
+                margin-top: 18%;
+                margin-bottom: 3%;
+            }
+
+            #create-button {
+                position: relative;
+                cursor: pointer;
+                background-color: #bd93f9;
+                border: none;
+                border-radius: 20px;
+                padding: 7px 5px 5px 5px;
+                margin-left: 15px;
+                width: 100px;
+                text-align: center;
+                text-decoration: none;
+                box-shadow: 0px 3px 20px #44475a;
+            }
+
+            #create-button:hover {
+                box-shadow: 0px 3px 20px #bd93f9;
+            }
+
+            #create-button:active {
+                background-color: #ff5555;
+                box-shadow: 0px 3px 20px #ff5555;
+            }
+
+            #description {
+                color: #6272a4;
+            }
+
+            @media only screen and (max-width: 1000px) {
+                #main {
+                    margin-top: 25%;
+                }
+
+                .result {
+                    margin-top: 25%;
+                    margin-left: 10%;
+                    margin-right: 10%;
+                }
+
+                .result b {
+                    padding: auto;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                input {
+                    padding: 5px 125px 5px 15px;
+                }
+
+                #main {
+                    margin-top: 40%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                #create-button {
+                    vertical-align: middle;
+                    padding: 5px 5px 5px 5px;
+                }
+
+                #description {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+            }
+
+            @media only screen and (max-width: 475px) {
+                .result {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+
+                #create-button {
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                }
+            }
+
+            @media only screen and (max-height: 600px) {
+                #main {
+                    margin-top: 10%;
+                }
+            }
+
+            @media only screen and (max-height: 500px) {
+                #main {
+                    margin-top: 0%;
+                }
+            }
+{% endblock style %}
+{%- block body %}
         <div id="main">
             <form id="input-field" action="/post/create-link" method="POST">
-                <input name="url" type="text" placeholder="https://example.com/" pattern="https?:\/\/(?:[a-z]+?\.)?.*?\.[a-z]{2,}(?::\d{1,5})?(?:(?=\/).*)?" required>
+                <input name="url" type="text" placeholder="https://example.com/" pattern="https?:\/\/(?:[a-z]+?\.)?.*?\.[a-z]{2,}(?::\d{1,5})?(?:(?=\/).*)?" maxlength="128" required>
                 <button class="noselect" id="create-button">Create</button>
             </form>
             <div>
@@ -19,4 +161,4 @@
                 </div>
             {% endif %}
         </div>
-{% endblock %}
+{% endblock body %}

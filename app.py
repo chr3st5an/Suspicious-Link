@@ -62,7 +62,7 @@ def post() -> str:
     return redirect("/")
 
 
-@app.route("/api/create-link", methods=["POST"])
+@app.route("/api", methods=["GET", "POST"])
 def api_create_link() -> str:
     """Represents an API to which POST request can be made
 
@@ -70,8 +70,11 @@ def api_create_link() -> str:
     -------
     >>> from requests import post
 
-    >>> print(post("http://.../api/create-link", data={"url":"http://..."}))
+    >>> print(post("http://.../api", data={"url": "https://..."}))
     """
+
+    if request.method != "POST":
+        return render_template("api_info.html", title="API"), 200
 
     response = {
         "alias": None,
@@ -97,7 +100,7 @@ def api_create_link() -> str:
 
     response["alias"] = url_alias
 
-    return json.dumps(response)
+    return json.dumps(response), 201
 
 
 @app.route("/post/create-link", methods=["GET", "POST"])
@@ -167,7 +170,7 @@ def method_not_allowed(err) -> str:
     """Handles the 405 error
     """
 
-    return render_template("method_not_allowed.html"), 405
+    return render_template("errors/method_not_allowed.html"), 405
 
 
 def create_collection_entry(subpath: str, alias_for: str) -> None:
@@ -211,9 +214,11 @@ def check_url_validity(url: Optional[str]) -> Tuple[bool, Optional[str]]:
     error: Optional[str] = None
 
     if url is None:
-        error = 'No URL received, please try again'
+        error = "No URL received, please try again"
+    elif len(url) > 128:
+        error = "URL can't be longer than 128 characters"
     elif url not in re.findall(r"https?:\/\/(?:[a-z]+?\.)?.+?\.[a-z]{2,}(?::\d{1,5})?(?:(?=\/).*)?", url):
-        error = 'Please match the required URL format'
+        error = "Please match the required URL format"
     elif SHADY_DOMAIN in url:
         error = "Cannot link to another alias"
 

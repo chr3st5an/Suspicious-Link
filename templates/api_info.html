@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{%- block style %}
+            {{ super() }}
+
+            #main {
+                background-color: #44475a;
+                margin-top: 10%;
+                margin-right: 25%;
+                margin-left: 25%;
+                border-radius: 20px;
+                box-shadow: 0px 3px 20px #44475a;
+            }
+
+            #card-title {
+                text-align: left;
+                padding: 15px;
+                color: #f8f8f2;
+                background-color: #6272a4;
+                border-radius: 20px 20px 0px 0px;
+            }
+
+            .card-code {
+                padding: 10px
+            }
+
+            .card-code div {
+                color: #f8f8f2;
+                background-color: #282a36;
+                padding: 10px;
+                border-radius: 20px;
+            }
+
+            .card-code p {
+                color: #f8f8f2;
+            }
+
+            .pink {
+                color: #ff79c6;
+            }
+
+            .yellow {
+                color: #f1fa8c;
+            }
+
+            .green {
+                color: #50fa7b;
+            }
+{% endblock style %}
+{%- block body %}
+<div id="main">
+    <div>
+        <div id="card-title">
+            <h5>POST /api</h5>
+        </div>
+        <div class="card-code">
+            <p><i>Python</i></p>
+            <div>
+                <p><span class="pink">from</span> requests <span class="pink">import</span> <span class="green">post</span></p>
+                <p>data = {<span class="yellow">"url"</span>: <span class="yellow">"http://..."</span>} </p>
+                <p>r = <span class="green">post</span>(<span class="yellow">"{{ request.url }}"</span>, data=data)</p>
+            </div>
+        </div>
+        <div class="card-code">
+            <p><i>Curl</i></p>
+            <div>
+                <p><span class="pink">curl</span> -X POST -d <span class="yellow">"url=http://..."</span> {{ request.url }}</p>
+            </div>
+        </div>
+        <div class="card-code">
+            <p><i>JSON-Response</i></p>
+            <div>
+                <p>{<span class="yellow">"alias"</span>: <span class="yellow">"http://{{ request.host }}/..."</span>, <span class="yellow">"error"</span>: <span class="pink">null</span>, <span class="yellow">"code"</span>: 201}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

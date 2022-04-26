@@ -64,7 +64,7 @@ The web app uses MongoDB as database. It only stores generated aliases and their
 
 ### Create Suspicious Links
 
-Endpoint: `POST /api/create-link`
+Endpoint: `POST /api`
 
 ```python
 # Python
@@ -76,18 +76,18 @@ data = {
 }
 
 
-r = requests.post("http://.../api/create-link", data=data)
+r = requests.post("https://4xk0.xyz/api/", data=data)
 ```
 
 ```curl
-curl -X POST -d "url=http://youtube.com" http://.../api/create-link
+curl -X POST -d "url=http://youtube.com" https://4xk0.xyz/api/
 ```
 
 JSON-Response:
 
 ```json
 {
-    "alias": "http://.../",
+    "alias": "http://4xk0.xyz/...",
     "error": null,
     "code" : 201
 }
