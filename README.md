@@ -46,7 +46,7 @@ The web page is made with HTML & CSS and doesn't use any JavaScript
 
 </br>
 
-## Data Stored In The Database
+## What Data Gets Stored
 
 ---
 
@@ -58,6 +58,43 @@ The web app uses MongoDB as database. It only stores generated aliases and their
 
 </br>
 
+## API
+
+---
+
+### Create Suspicious Links
+
+Endpoint: `POST /api/create-link`
+
+```python
+# Python
+import requests
+
+
+data = {
+    "url": "https://youtube.com/"
+}
+
+
+r = requests.post("http://.../api/create-link", data=data)
+```
+
+```curl
+curl -X POST -d "url=http://youtube.com" http://.../api/create-link
+```
+
+JSON-Response:
+
+```json
+{
+    "alias": "http://.../",
+    "error": null,
+    "code" : 201
+}
+```
+
+</br>
+
 <div style="text-align:center">
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -65,8 +102,6 @@ The web app uses MongoDB as database. It only stores generated aliases and their
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-
-</br>
 
 Made with <span style="color:red">&hearts;</span> by @chr3st5an
 
