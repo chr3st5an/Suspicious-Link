@@ -37,7 +37,6 @@ __version__ = "1.0.0"
 load_dotenv()
 
 MONGO_URL       = os.getenv("MongoURL")
-SHADY_DOMAIN    = os.getenv("ShadyDomain")
 DATABASE_NAME   = os.getenv("DatabaseName")
 COLLECTION_NAME = os.getenv("CollectionName")
 
@@ -219,7 +218,7 @@ def check_url_validity(url: Optional[str]) -> Tuple[bool, Optional[str]]:
         error = "URL can't be longer than 128 characters"
     elif url not in re.findall(r"https?:\/\/(?:[a-z]+?\.)?.+?\.[a-z]{2,}(?::\d{1,5})?(?:(?=\/).*)?", url):
         error = "Please match the required URL format"
-    elif SHADY_DOMAIN in url:
+    elif request.host in url:
         error = "Cannot link to another alias"
 
     return (False if error else True), error
@@ -244,7 +243,7 @@ def generate_link() -> Tuple[str, str]:
     if link_collection.find_one({"_id": subpath}):
         return generate_link()
 
-    return f"http://{SHADY_DOMAIN}/{subpath}", subpath
+    return f"{request.host_url}{subpath}", subpath
 
 
 if __name__ == '__main__':
