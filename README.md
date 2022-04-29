@@ -103,6 +103,8 @@ JSON-Response:
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=a39555079e5e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
 Made with <span style="color:red">&hearts;</span> by @chr3st5an
 
 </div>
