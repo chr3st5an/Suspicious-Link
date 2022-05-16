@@ -2,7 +2,7 @@
 
 <div style="text-align:center;text-decoration:none;">
 
-# [\</> Suspicious Link](http://4xk0.xyz/)
+# </> Suspicious Link
 
 </div>
 
@@ -16,7 +16,7 @@ https://github.com/chr3st5an -> http://4xk0.xyz/04323142tcpipscreen-killer?delet
 
 ![Suspicious Link photo](https://i.imgur.com/hRIzvPj.jpg)
 
-You can visit the webpage of Suspicious Link [here](http://4xk0.xyz)
+You can visit the webpage of Suspicious Link ~~[here](http://4xk0.xyz)~~ (server not running!)
 
 </br>
 
@@ -26,7 +26,7 @@ You can visit the webpage of Suspicious Link [here](http://4xk0.xyz)
 
 The web app is configured to redirect any HTTP GET request whose subpath is not part of the website nor part of a suspicious link alias to a rick roll:
 
-> http://4xk0.xyz/ADDICT-21012902/VIDEO-hack390203/download.exe
+> ~~http://4xk0.xyz/ADDICT-21012902/VIDEO-hack390203/download.exe~~
 
 </br>
 
